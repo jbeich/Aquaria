@@ -6175,7 +6175,7 @@ void Avatar::onUpdate(float dt)
 			{
 				if (state.spellCharge > 1.5f && chargeLevelAttained <1)
 				{
-					chargeLevelAttained = 1.5;
+					chargeLevelAttained = 1;
 					core->sound->playSfx("PowerUp");
 					chargingEmitter->load("ChargingEnergy2");
 				}

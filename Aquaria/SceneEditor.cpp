@@ -3380,13 +3380,13 @@ void SceneEditor::update(float dt)
 			case ES_SCALING:
 			{
 				bool right=false, middle=false, down=false, uni=false, repeatScale=false;
-				bool noSide = 0;
+				bool noSide = false;
 				if (cursorOffset.x > oldPosition.x+10)
 					right = true;
 				else if (cursorOffset.x < oldPosition.x-10)
 					right = false;
 				else
-					noSide++;
+					noSide = true;
 				if (cursorOffset.y > oldPosition.y+10)
 					down = true;
 				else if (cursorOffset.y < oldPosition.y-10)
