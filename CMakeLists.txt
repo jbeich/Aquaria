@@ -361,6 +361,11 @@ IF(UNIX AND NOT HAIKU)
     ADD_DEFINITIONS(-DLUA_USE_ULONGJMP=1)
 ENDIF()
 
+IF(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+    # Ignore unhandled enum values
+    ADD_DEFINITIONS(-Wno-switch)
+ENDIF()
+
 IF(CMAKE_COMPILER_IS_GNUCC)
     ADD_DEFINITIONS(-pipe -fsigned-char)
     #ADD_DEFINITIONS(-Wall)
