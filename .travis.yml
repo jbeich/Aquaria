@@ -1,0 +1,20 @@
+language: cpp
+os: freebsd
+
+compiler:
+  - clang
+  - gcc
+
+env:
+  global:
+    - CMAKE_ARGS: -DAQUARIA_INTERNAL_PNG=OFF
+  jobs:
+    - CMAKE_ARGS: $CMAKE_ARGS -DAQUARIA_USE_SDL2=OFF
+    - CMAKE_ARGS: $CMAKE_ARGS -DAQUARIA_USE_SDL2=ON
+
+before_install:
+  - sudo pkg install -y cmake ninja openal-soft png sdl sdl2
+
+script:
+  - cmake -B build/ -G Ninja $CMAKE_ARGS
+  - cmake --build build/
